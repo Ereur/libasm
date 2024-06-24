@@ -1,21 +1,12 @@
 ; implement strlen function. 
 ; it takes const char pointer to the first charachter of string
 ; and returned size_t the size of the passed argument
-
-section .data
-    msg db '123456789',0
+; ft_strlen.asm
 
 section .text
-    global _start
+    global ft_strlen
 
-_start:
-    mov rdi,msg
-    call strlen
-    call strlen_loop
-    call print
-    call exit
-    
-strlen:
+ft_strlen:
     xor rcx,rcx
 
 strlen_loop:
@@ -27,15 +18,3 @@ strlen_loop:
 end_strlen:
     mov rax,rcx
     ret
-
-print:
-    mov rsi,rax
-    mov eax,1
-    mov rdi,1
-    mov rdx,1
-    syscall
-
-exit:
-    mov eax, 60
-    mov edi, 0
-    syscall
