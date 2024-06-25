@@ -6,12 +6,14 @@ ft_strcpy:
     xor rcx,rcx
 
 strcpy_loop:
-    cmp byte [rdi+rcx],0
+    cmp byte [rsi+rcx],0
     je strcpy_end
-    mov rax,[rdi+rcx]
-    mov rsi,rax
+    mov rax,[rsi+rcx]
+    mov [rdi+rcx],rax
     inc rcx
     jmp strcpy_loop
+
+
 
 strcpy_end:
     mov rax,rdi

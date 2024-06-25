@@ -20,7 +20,7 @@ $(TARGET): $(OBJECTS)
 
 # Rule to compile assembly files into object files
 %.o: %.asm
-	$(AS) $(ASFLAGS) $< -o $@
+	$(AS) -g $(ASFLAGS) $< -o $@
 
 # Clean up build files
 clean:
